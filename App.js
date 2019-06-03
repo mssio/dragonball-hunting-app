@@ -1,11 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import "utils/enableFontPatch";
+import MainNavigation from "navigations/MainNavigation";
+import Application from "Application";
 
 export default class App extends React.Component {
   render() {
+    const { notification } = this.props.exp;
+
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Application Navigation={MainNavigation} notification={notification} />
       </View>
     );
   }
@@ -14,8 +19,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "#fff"
   }
 });
